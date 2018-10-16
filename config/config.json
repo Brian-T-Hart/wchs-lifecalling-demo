@@ -1,0 +1,23 @@
+{
+	"development": {
+		"username": "root",
+		"password": "test",
+		"database": "wchs_worldviews",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"test": {
+		"username": "root",
+		"password": "test",
+		"database": "database_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"production": {
+		"username": "b09be664b29abd",
+		"password": "e4470d5f ",
+		"database": "heroku_15f285f40d87743",
+		"host": "us-cdbr-iron-east-01.cleardb.net",
+		"dialect": "mysql"
+	}
+}
