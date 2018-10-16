@@ -1,0 +1,8 @@
+a, a:visited, a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+.uploadButtonDiv {
+	margin-bottom: 20px;
+}

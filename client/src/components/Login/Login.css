@@ -1,0 +1,81 @@
+input {
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+#forgotPassword {
+	display: block;
+	font-size: 12px;
+	margin: auto;
+	opacity: 0.7;
+	text-align: center;
+	width: 70%;
+}
+
+#login-form #formTitle {
+	color: #393433;
+	margin-bottom: 20px;
+	margin-top: 40px;
+	text-align: center;
+}
+
+#login-form {
+	background-color: #fff;
+	border: 2px solid #393433;
+	border-radius: 4px;
+	float: left;
+	height: 400px;
+	margin-left: 20px;
+	margin-top: 80px;
+	padding: 20px;
+	width: 400px;
+}
+
+#login-submit {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	width: 100px;
+}
+
+#password {
+	margin-bottom: 0;
+}
+
+#registerLink {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 998px) {
+	#login-form #formTitle {
+		margin-top: 20px;
+	}
+
+	#login-form, #largeLogo {
+		height: 340px;
+		width: 340px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.largeLogo {
+		display: none;
+	}
+
+	#login-form {
+		float: none;
+		height: 360px;
+		margin: auto;
+		margin-top: 50px;
+		width: 80%;
+	}
+
+	#login-form #formTitle {
+		margin-top: 30px;
+	}
+}

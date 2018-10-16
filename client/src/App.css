@@ -1,0 +1,125 @@
+body {
+	background: url("/../images/chalkboardBackground.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+h3 {
+	padding-top: 0.5em;
+	font-size: 1.2em;
+}
+
+h6 {
+	color: #000;
+	padding-bottom: 0.6em;
+	margin: 0.5em;
+}
+
+.allNames {
+	color: blue;
+	margin: 0em;
+	padding-left: 0.5em;
+}
+
+.clickable, .clickable:hover, ul li:hover {
+	cursor: pointer;
+}
+
+.dashboard-content-row {
+	margin: auto;
+	max-width: 1080px;
+	padding: 20px 0;
+	width: 90%;
+}
+
+.loginContentRow, .registerContentRow {
+	margin: 0;
+	padding: 0;
+}
+
+.infoContainer {
+	display: block;
+	margin: auto;
+	margin-top: 1.8em;
+	max-width: 90%;
+	border: 2px solid silver;
+}
+
+.info-div {
+	max-height: 300px;
+	overflow: hidden;
+}
+
+.infoInfoBox {
+	border-top: 2px solid silver;
+	height: 14em;
+	background-color: #fff;
+}
+
+.infoTitle {
+	text-align: center;
+	background-color: #d00010;
+	color: #fff;
+}
+
+.list-group-item {
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+
+.modal {
+	max-height: 80%;
+	margin-top: 3em;
+}
+
+.modal-body {
+	padding: 2em 2em;
+}
+
+.modal-header {
+	background-color: #0000ff;
+}
+
+.modal-title {
+	padding-left: 0.7em;
+	color: #fff;
+}
+
+#editIcon {
+	width: 0.7em;
+	height: auto;
+	position: absolute;
+	right: 0.4em;
+	top: 0.4em;
+}
+
+#mainNavbar {
+		background-color: #d00010;
+		padding: 0.5em;
+		min-height: 4em;
+}
+
+#navTitle {
+		text-decoration: none;
+		color: #fff;
+		font-size: 1.3em;
+}
+
+#navLogo {
+		height: 2.3em;
+		margin: 0em 1em;
+		padding-left: 0em;
+		width: auto;
+}
+
+#navLogoutLink {
+	border-top: 1px solid gray;
+}
+
+#navDropdownMenu {
+		margin-right: 1.5em;
+		font-size: 1.3em;
+}
+
+#navbarDropdown {
+		color: #fff;
+}
