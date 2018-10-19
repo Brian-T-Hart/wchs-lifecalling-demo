@@ -10,6 +10,10 @@ input {
 	padding: 0px;
 }
 
+#confirm-password {
+	margin-top: 10px;
+}
+
 #register-form #formTitle {
 	color: #393433;
 	margin-top: 20px;
