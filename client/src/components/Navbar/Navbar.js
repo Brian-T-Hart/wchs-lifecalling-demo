@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import authenticated from "../../utils/Authenticated";
 
 class Navbar extends Component {
@@ -46,7 +46,7 @@ class Navbar extends Component {
 		e.preventDefault();
 		authenticated.authenticate();
 		if (authenticated.isTrue) {
-			window.location.replace("/dashboard");
+			this.props.history.push("/dashboard");
 		}
 		else {
 			alert("You must be logged in to view your dashboard.");
@@ -81,4 +81,4 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+export default withRouter(Navbar);
