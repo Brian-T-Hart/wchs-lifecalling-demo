@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import authenticated from "../../utils/Authenticated";
 
 class Navbar extends Component {
@@ -44,7 +45,7 @@ class Navbar extends Component {
 		return (
 			<div>
 				<nav id="mainNavbar" className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light">
-					<a id="navTitle" href="/dashboard" onClick={this.handleRoute}><img id="navLogo" src="../../images/lifeCallingLogoRed.png" alt="" />LIFE CALLING</a>
+					<NavLink id="navTitle" to="/dashboard" onClick={this.handleRoute}><img id="navLogo" src="../../images/lifeCallingLogoRed.png" alt="" />LIFE CALLING</NavLink>
 
 					<ul id="navDropdownMenu" className="navbar-nav ml-auto">
 						<li className="nav-item dropdown">
@@ -52,14 +53,14 @@ class Navbar extends Component {
 								{this.props.username}</a>
 
 							<div id="navDropdown" className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a className="dropdown-item" href="/dashboard" onClick={this.handleRoute}>Dashboard</a>
+								<NavLink className="dropdown-item" to="/dashboard" onClick={this.handleRoute}>Dashboard</NavLink>
 
-								<a className="dropdown-item" href="/login">Login</a>
+								<NavLink className="dropdown-item" to="/login">Login</NavLink>
 
-								<a className="dropdown-item" href="/register">Register</a>
+								<NavLink className="dropdown-item" to="/register">Register</NavLink>
 								
-								{this.state.adminLink ? <a className='dropdown-item' disabled={true} href='/allStudents'>Students</a> : null}
-								<a className="dropdown-item" href="/login" id="navLogoutLink" onClick={this.handleLogOut}>Logout</a>
+								{this.state.adminLink ? <NavLink className='dropdown-item' disabled={true} to='/allStudents'>Students</NavLink> : null}
+								<Link className="dropdown-item" to="/login" id="navLogoutLink" onClick={this.handleLogOut}>Logout</Link>
 							</div>
 						</li>
 					</ul>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import API from "../../utils/API";
 import decode from 'jwt-decode';
 import Navbar from "../Navbar/Navbar.js";
@@ -77,7 +78,7 @@ class Login extends Component {
 							<button type="submit" name="login-submit" id="login-submit" tabIndex="3" className="form-control btn btn-primary btn-login" value="Log In" onClick={this.handleLogin}>Log In</button>
 
 							<div id="registerLink" className="row">
-								<a href="/register" >Register</a>
+								<NavLink to="/register" >Register</NavLink>
 							</div>
 						</form>
 					</div>
