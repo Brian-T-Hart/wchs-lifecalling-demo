@@ -12,7 +12,6 @@ import MyLoveLanguages from "../MyLoveLanguages/MyLoveLanguages.js";
 import listOfIntelligences from './listOfIntelligences';
 import MyIntelligences from "../MyIntelligences/MyIntelligences.js";
 import MyOthers from "../MyOthers/MyOthers.js";
-import Navbar from "../Navbar/Navbar.js";
 
 class Dashboard extends Component {
 
@@ -110,7 +109,6 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div id="dashboardContainer">
-				<Navbar username={this.state.username}/>
 
 				<div className="row container-fluid dashboard-content-row">
 						<div className="info-div col-md-4 col-sm-6">

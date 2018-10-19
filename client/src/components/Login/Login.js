@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import API from "../../utils/API";
 import decode from 'jwt-decode';
-import Navbar from "../Navbar/Navbar.js";
 import "./Login.css";
 
 class Login extends Component {
@@ -59,29 +58,26 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div>
-				<Navbar />
-				<div className="row container-fluid loginContentRow">
-					<div className="col-md-6 largeLogo">
-						<img id="largeLogo" src="../../images/lc-logo.jpg" alt="" />
-					</div>
-					<div className="col-md-6">
-						<form id="login-form" >
-							<h2 id="formTitle"> Sign-In </h2>
+			<div className="row container-fluid loginContentRow">
+				<div className="col-md-6 largeLogo">
+					<img id="largeLogo" src="../../images/lc-logo.jpg" alt="" />
+				</div>
+				<div className="col-md-6">
+					<form id="login-form" >
+						<h2 id="formTitle"> Sign-In </h2>
 
-							<input type="text" name="userName" id="username" tabIndex="1" placeholder="Username *" value={this.state.userName} onChange={this.handleInputChange} autoComplete="username" required></input>
+						<input type="text" name="userName" id="username" tabIndex="1" placeholder="Username *" value={this.state.userName} onChange={this.handleInputChange} autoComplete="username" required></input>
 
-							<input type="password" name="password" id="password" tabIndex="2" placeholder="Password *" value={this.state.password} onChange={this.handleInputChange} autoComplete="current-password" required></input>
+						<input type="password" name="password" id="password" tabIndex="2" placeholder="Password *" value={this.state.password} onChange={this.handleInputChange} autoComplete="current-password" required></input>
 
-							{/* <a href="/forgotPassword" id="forgotPassword">forgot password?</a> */}
+						{/* <a href="/forgotPassword" id="forgotPassword">forgot password?</a> */}
 
-							<button type="submit" name="login-submit" id="login-submit" tabIndex="3" className="form-control btn btn-primary btn-login" value="Log In" onClick={this.handleLogin}>Log In</button>
+						<button type="submit" name="login-submit" id="login-submit" tabIndex="3" className="form-control btn btn-primary btn-login" value="Log In" onClick={this.handleLogin}>Log In</button>
 
-							<div id="registerLink" className="row">
-								<NavLink to="/register" >Register</NavLink>
-							</div>
-						</form>
-					</div>
+						<div id="registerLink" className="row">
+							<NavLink to="/register" >Register</NavLink>
+						</div>
+					</form>
 				</div>
 			</div>
 		)

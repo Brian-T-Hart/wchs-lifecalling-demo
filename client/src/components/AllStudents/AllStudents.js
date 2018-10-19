@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
-import Navbar from "../Navbar/Navbar.js";
 import "./AllStudents.css";
 
 class AllStudents extends Component {
@@ -84,7 +83,6 @@ class AllStudents extends Component {
 		return (
 
 			<div>
-				<Navbar />
 				<table className="table all-students">
 					<thead>
 						<tr>
