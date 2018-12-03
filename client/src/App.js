@@ -6,6 +6,7 @@ import Login from './components/Login/Login.js';
 import Navbar from './components/Navbar/Navbar.js';
 import Register from './components/Register/Register.js';
 import AllStudents from './components/AllStudents/AllStudents.js';
+import PasswordReset from './components/PasswordReset/PasswordReset.js';
 
 class App extends Component {
 	render() {
@@ -20,6 +21,7 @@ class App extends Component {
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/register" component={Register} />
 					<Route exact path="/allStudents" component={AllStudents} />
+					<Route exact path="/passwordReset" component={PasswordReset} />
 				</Switch>
 			</div>
 		</Router>

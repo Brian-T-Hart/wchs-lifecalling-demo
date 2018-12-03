@@ -85,5 +85,10 @@ export default {
 	// save learning styles document
 	saveLearningStylesUrl: function (Data) {
 		return axios.post("students/saveLearningStyles", Data);
+	},
+
+	// reset student password
+	passwordReset: function (Data) {
+		return axios.post("accounts/passwordReset", Data);
 	}
 }

@@ -1,6 +1,8 @@
+var bcrypt = require('bcrypt-nodejs');
 var express = require("express");
 var passport = require("passport");
 var router = express.Router();
+var db = require("../models");
 
 
 // ALL links in this file get prepended with /account
@@ -19,5 +21,59 @@ router.post('/register', passport.authenticate('local-register', {
 	successRedirect: '/login',
 	failureRedirect: '/'
 }));
+
+// this is handling the password reset
+router.post('/passwordReset', (req, res, next) => {
+	db.students.findOne(
+		{
+			attributes: ['isAdmin', 'password'],
+			where:
+				{
+					id: req.body.id
+				}
+		}
+	)
+	.then(
+		function (results) {
+			console.log("adminPassword: ", req.body.adminPassword);
+			console.log("isAdmin: ", results.isAdmin);
+			console.log("password sync: ", bcrypt.compareSync(req.body.adminPassword, results.password));
+			if (!results.isAdmin) {
+				res.json("You do not have admin privileges!");
+			}
+
+			else if (!bcrypt.compareSync(req.body.adminPassword, results.password)) {
+				res.json("The admin password is incorrect");
+			}
+
+			else {
+				db.students.update(
+					{
+						password: bcrypt.hashSync(req.body.password)
+					},
+					{
+						where:
+						{
+							email: req.body.email
+						}
+					}
+				)
+				.then(
+					function (results) {
+						res.json(results);
+					}
+				)
+				.catch(
+					function (err) {
+						console.log(err);
+					}
+				)
+			}
+		}
+	)
+	.catch(function (err) {
+		console.log(err);
+	})
+});
 
 module.exports = router;

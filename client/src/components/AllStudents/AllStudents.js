@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import API from "../../utils/API";
 import "./AllStudents.css";
 
@@ -76,6 +77,10 @@ class AllStudents extends Component {
 						<a href={student.learningStylesUrl}>Learning Styles</a><br></br>
 						<a href={student.johariUrl}>Johari Window</a><br></br>
 						<a href={student.documentUrl}>CV</a>
+					</td>
+
+					<td>
+						<Link to="/passwordReset">edit password</Link>
 					</td>
 				</tr>
 		)
