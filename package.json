@@ -1,6 +1,9 @@
 {
   "name": "wchs-life-calling-demo",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.11.3"
+  },
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
