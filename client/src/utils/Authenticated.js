@@ -1,24 +1,34 @@
 import decode from 'jwt-decode';
 
-var authenticated = {
-	isTrue: false,
-	authenticate() {
-		var token = localStorage.getItem("lifeCallingToken");
-		if (token) {
-			const decoded = decode(token);
-			const time = parseInt((Date.now() / 1000), Number);
-			const timeDifference = parseInt((time - decoded.iat) / 60, Number);
-			if (timeDifference < 60) {
-				authenticated.isTrue = true;
+function authenticated() {
+
+	var token = localStorage.getItem("lifeCallingToken");
+	var user = localStorage.getItem('lifeCallingUsername');
+	var admin = localStorage.getItem('lifeCallingIsAdmin');
+	
+	if (token) {
+		const decoded = decode(token);
+		const time = parseInt((Date.now() / 1000), Number);
+		const timeDifference = parseInt((time - decoded.iat) / 60, Number);
+
+		if (timeDifference < 60) {
+			var authenticated = {
+				isTrue: true,
+				userName: user,
+				isAdmin: admin
 			}
-			else {
-				authenticated.isTrue = false;
-			}
+
+			return authenticated;
 		}
+
 		else {
-			authenticated.isTrue = false;
+			return false;
 		}
+	}
+
+	else {
+		return false;
 	}
 }
 
-export default authenticated;
+export default authenticated();

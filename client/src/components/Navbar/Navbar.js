@@ -6,73 +6,48 @@ class Navbar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			adminLink: false,
-			username: ''
+			authenticated: authenticated.isTrue,
+			isAdmin: authenticated.isAdmin,
+			username: authenticated.userName
 		}
 	  }
-
-	componentWillMount() {
-		var isAdmin = localStorage.getItem('lifeCallingIsAdmin');
-		var username = localStorage.getItem('lifeCallingUsername');
-		if (isAdmin === "true") {
-			this.setState(
-				{
-					adminLink: true
-				}
-			)
-		}
-		if (username) {
-			this.setState({
-				username
-			})
-		}
-	}
 
 	handleLogOut = () => {
 		this.setState(
 			{
-				adminLink: false,
+				authenticated: false,
+				isAdmin: false,
 				username: ''
 			}
 		)
 
-		localStorage.clear("lifeCallingToken");
 		localStorage.clear("lifeCallingId");
-		localStorage.clear("lifeCallingUsername");
 		localStorage.clear("lifeCallingIsAdmin");
-	}
-
-	handleRoute = (e) => {
-		e.preventDefault();
-		authenticated.authenticate();
-		if (authenticated.isTrue) {
-			this.props.history.push("/dashboard");
-		}
-		else {
-			alert("You must be logged in to view your dashboard.");
-		}
+		localStorage.clear("lifeCallingToken");
+		localStorage.clear("lifeCallingUsername");		
 	}
 
 	render() {
 
 		return (
 			<nav id="mainNavbar" className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light">
-				<NavLink id="navTitle" to="/dashboard" onClick={this.handleRoute}><img id="navLogo" src="../../images/lifeCallingLogoRed.png" alt="" />LIFE CALLING</NavLink>
+				<NavLink id="navTitle" to={this.state.authenticated ? "/dashboard" : "/login"}><img id="navLogo" src="../../images/lifeCallingLogoRed.png" alt="" />LIFE CALLING</NavLink>
 
 				<ul id="navDropdownMenu" className="navbar-nav ml-auto">
 					<li className="nav-item dropdown">
-						<a className="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							{this.state.username}</a>
 
 						<div id="navDropdown" className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<NavLink className="dropdown-item" to="/dashboard" onClick={this.handleRoute}>Dashboard</NavLink>
+							{this.state.username ? <NavLink className="dropdown-item" to="/dashboard" onClick={this.handleRoute}>Dashboard</NavLink> : null}
 
-							<NavLink className="dropdown-item" to="/login">Login</NavLink>
+							{!this.state.authenticated ? <NavLink className="dropdown-item" to="/login">Login</NavLink> : null}
 
-							<NavLink className="dropdown-item" to="/register">Register</NavLink>
+							{!this.state.authenticated ? <NavLink className="dropdown-item" to="/register">Register</NavLink> : null}
 							
-							{this.state.adminLink ? <NavLink className='dropdown-item' disabled={true} to='/allStudents'>Students</NavLink> : null}
-							<Link className="dropdown-item" to="/login" id="navLogoutLink" onClick={this.handleLogOut}>Logout</Link>
+							{this.state.isAdmin === 'true' ? <NavLink className='dropdown-item' disabled={true} to='/allStudents'>Students</NavLink> : null}
+
+							{this.state.authenticated ? <Link className="dropdown-item" to="/login" id="navLogoutLink" onClick={this.handleLogOut}>Logout</Link> : null}
 						</div>
 					</li>
 				</ul>

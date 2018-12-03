@@ -62,6 +62,7 @@ class Login extends Component {
 				<div className="col-md-6 largeLogo">
 					<img id="largeLogo" src="../../images/lc-logo.jpg" alt="" />
 				</div>
+				
 				<div className="col-md-6">
 					<form id="login-form" >
 						<h2 id="formTitle"> Sign-In </h2>
@@ -69,8 +70,6 @@ class Login extends Component {
 						<input type="text" name="userName" id="username" tabIndex="1" placeholder="Username *" value={this.state.userName} onChange={this.handleInputChange} autoComplete="username" required></input>
 
 						<input type="password" name="password" id="password" tabIndex="2" placeholder="Password *" value={this.state.password} onChange={this.handleInputChange} autoComplete="current-password" required></input>
-
-						{/* <a href="/forgotPassword" id="forgotPassword">forgot password?</a> */}
 
 						<button type="submit" name="login-submit" id="login-submit" tabIndex="3" className="form-control btn btn-primary btn-login" value="Log In" onClick={this.handleLogin}>Log In</button>
 
