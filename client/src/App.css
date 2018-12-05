@@ -1,3 +1,9 @@
+html, body {
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
 body {
 	background: url("/../images/chalkboardBackground.jpg") no-repeat center center fixed;
 	background-size: cover;
@@ -67,16 +73,20 @@ h6 {
 }
 
 .modal {
-	max-height: 80%;
-	margin-top: 3em;
+	margin-bottom: 80px;
+	margin-top: 80px;
 }
 
 .modal-body {
 	padding: 2em 2em;
 }
 
+.modal-dialog {
+	margin-top: 0;
+}
+
 .modal-header {
-	background-color: #0000ff;
+	background-color: #0000FF;
 }
 
 .modal-title {
