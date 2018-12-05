@@ -2,6 +2,10 @@
 	background-color: #FFF;
 }
 
+.table-container {
+	overflow: auto;
+}
+
 ul {
 	list-style-type: none;
 	padding: 0;
