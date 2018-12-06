@@ -73,7 +73,7 @@ class PasswordReset extends Component {
 
 						<label htmlFor="password">New Password *</label>
 
-						<input type="text" name="password" id="new-password" tabIndex="2" placeholder="New Password" value={this.state.password} onChange={this.handleInputChange} required></input>
+						<input type="password" name="password" id="new-password" tabIndex="2" placeholder="New Password" value={this.state.password} onChange={this.handleInputChange} required></input>
 
 						<label htmlFor="adminPassword">Admin Password *</label>
 
