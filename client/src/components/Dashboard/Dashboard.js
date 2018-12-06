@@ -108,7 +108,7 @@ class Dashboard extends Component {
 
 	render() {
 		return (
-			<div id="dashboardContainer">
+			<div className="content-container" id="dashboard-container">
 
 				<div className="row container-fluid dashboard-content-row">
 						<div className="info-div col-md-4 col-sm-6">

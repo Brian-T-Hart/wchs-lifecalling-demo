@@ -58,7 +58,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className="row container-fluid loginContentRow">
+			<div className="row container-fluid content-container loginContentRow">
 				<div className="col-md-6 largeLogo">
 					<img id="largeLogo" src="../../images/lc-logo.jpg" alt="" />
 				</div>

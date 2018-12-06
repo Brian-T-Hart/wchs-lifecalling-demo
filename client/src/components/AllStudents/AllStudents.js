@@ -86,27 +86,24 @@ class AllStudents extends Component {
 		)
 
 		return (
+			<table className="content-container table all-students">
+				<thead>
+					<tr>
+					<th scope="col">Username</th>
+					<th scope="col">Email</th>
+					<th scope="col">Strengths</th>
+					<th scope="col">Myers-Briggs</th>
+					<th scope="col">Spiritual Gifts</th>
+					<th scope="col">Love Languages</th>
+					<th scope="col">Multiple-Intelligences</th>
+					<th scope="col">Documents</th>
+					</tr>
+				</thead>
 
-			<div className="table-container">
-				<table className="table all-students">
-					<thead>
-						<tr>
-						<th scope="col">Username</th>
-						<th scope="col">Email</th>
-						<th scope="col">Strengths</th>
-						<th scope="col">Myers-Briggs</th>
-						<th scope="col">Spiritual Gifts</th>
-						<th scope="col">Love Languages</th>
-						<th scope="col">Multiple-Intelligences</th>
-						<th scope="col">Documents</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						{ allTheStudents }
-					</tbody>
-				</table>
-			</div>
+				<tbody>
+					{ allTheStudents }
+				</tbody>
+			</table>
 		)
 	}
 }
