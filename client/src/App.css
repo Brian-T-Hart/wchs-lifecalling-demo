@@ -1,6 +1,10 @@
+* {
+	box-sizing: border-box;
+}
+
 html, body {
 	height: 100%;
-	overflow: hidden;
+	overflow: auto;
 	width: 100%;
 }
 
@@ -28,6 +32,11 @@ h6 {
 
 .clickable, .clickable:hover, ul li:hover {
 	cursor: pointer;
+}
+
+.content-container {
+	position: relative;
+	top: 60px;
 }
 
 .dashboard-content-row {
@@ -104,8 +113,13 @@ h6 {
 
 #mainNavbar {
 		background-color: #d00010;
-		padding: 0.5em;
+		left: 0;
 		min-height: 4em;
+		padding: 0.5em;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9;
 }
 
 #navTitle {
