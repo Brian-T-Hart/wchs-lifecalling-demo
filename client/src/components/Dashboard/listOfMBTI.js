@@ -32,7 +32,7 @@ const listOfMBTI = [
 	{
 		id: 7,
 		name: "Perceiving",
-		description: "That is they like to keep exploring information, and people who prefer."
+		description: "That is they like to keep exploring information and are not in a hurry to make a decision."
 	},
 	{
 		id: 8,
