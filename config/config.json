@@ -1,23 +1,23 @@
 {
-	"development": {
-		"username": "root",
-		"password": "test",
-		"database": "wchs_worldviews",
-		"host": "127.0.0.1",
-		"dialect": "mysql"
-	},
-	"test": {
-		"username": "root",
-		"password": "test",
-		"database": "database_test",
-		"host": "127.0.0.1",
-		"dialect": "mysql"
-	},
-	"production": {
-		"username": "n3kppc33q8abk5od",
-		"password": "rka42854aqv459da",
-		"database": "zlk92as0lj7531rz",
-		"host": "u28rhuskh0x5paau.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-		"dialect": "mysql"
-	}
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "wchs_worldviews",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "n3kppc33q8abk5od",
+    "password": "rka42854aqv459da",
+    "database": "zlk92as0lj7531rz",
+    "host": "u28rhuskh0x5paau.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
 }
