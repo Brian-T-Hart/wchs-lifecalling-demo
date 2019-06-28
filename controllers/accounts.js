@@ -3,6 +3,7 @@ const db = require("../models");
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
+const saltRounds = 10;
 
 // ALL links in this file get prepended with /account
 // ==================================================
@@ -61,7 +62,7 @@ router.post("/passwordReset", (req, res, next) => {
         db.students
           .update(
             {
-              password: bcrypt.hashSync(req.body.password)
+              password: bcrypt.hashSync(req.body.password, saltRounds)
             },
             {
               where: {
