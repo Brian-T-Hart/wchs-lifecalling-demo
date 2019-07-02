@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import listOfStrengths from "../Dashboard/listOfStrengths.js";
+import listOfStrengthsExplorer from "../Dashboard/listOfStrengthsExplorer.js";
 
 class MyStrengths extends Component {
 
@@ -8,16 +9,29 @@ class MyStrengths extends Component {
 		this.state = {
 			strengthName: "",
 			strengthDescription: "",
-	}
+		}
 		this.handleClick = this.handleClick.bind(this);
-}
+	}
 
 	strengthIndex(name) {
-		for (let i=0; i<listOfStrengths.length; i++) {
-			if (listOfStrengths[i].name === name) {
-				this.setState({ strengthName: listOfStrengths[i].name });
-				this.setState({ strengthDescription: listOfStrengths[i].description })
-			}
+		let strengthObject = listOfStrengthsExplorer.find(strength => strength.name === name);
+		if (strengthObject) {
+			this.setState(
+				{
+					strengthName: strengthObject.name,
+					strengthDescription: strengthObject.description
+				}
+			);
+		}
+
+		else {
+			strengthObject = listOfStrengths.find(strength => strength.name === name);
+			this.setState(
+				{
+					strengthName: strengthObject.name,
+					strengthDescription: strengthObject.description
+				}
+			);
 		}
 	}
 
@@ -35,7 +49,7 @@ class MyStrengths extends Component {
 			</li>
 		);
 
-		const allStrengths = listOfStrengths.map((allStrength) =>
+		const allStrengths = listOfStrengthsExplorer.map((allStrength) =>
 			<div key={allStrength.id}>
 				<div className="row">
 					<h5 className="allNames">
@@ -60,7 +74,7 @@ class MyStrengths extends Component {
 					<div className="col-md-12">
 						{/* Trigger modal with title span */}
 						<span className="clickable" data-toggle="modal" data-target="#allStrengthsModal">
-							<h3>Strengths Finder</h3>
+							<h3>Strengths Explorer</h3>
 						</span>
 
 						{/* Trigger modal with edit icon */}
