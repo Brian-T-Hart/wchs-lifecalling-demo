@@ -13,29 +13,28 @@ class StrengthsModal extends Component {
 
 	handleClick(e) {
 		e.preventDefault();
-		this.myStrengths = [this.props.myStrengths[0], this.props.myStrengths[1], this.props.myStrengths[2], this.props.myStrengths[3], this.props.myStrengths[4]];
-		this.myStrengths[0]=this.refs.strength1.value;
-		this.myStrengths[1]=this.refs.strength2.value;
-		this.myStrengths[2]=this.refs.strength3.value;
-		this.myStrengths[3]=this.refs.strength4.value;
-		this.myStrengths[4]=this.refs.strength5.value;
-		this.props.callbackFromStrengthsModal(this.myStrengths);
+		let myStrengths = [];
+		myStrengths[0] = this.refs.strength1.value;
+		myStrengths[1] = this.refs.strength2.value;
+		myStrengths[2] = this.refs.strength3.value;
+		this.props.callbackFromStrengthsModal(myStrengths);
 		API.updateStrengths(
 			{
 				id: localStorage.getItem("lifeCallingId"),
-				strengths: this.myStrengths
+				strengths: myStrengths
 			}
 		)
-		.then(
-			res => {
-				console.log(res);
-			}
-		)
-		.catch(
-			err => {
-				alert('A problem occurred. Please try again.');
-			}
-		)
+			.then(
+				res => {
+					console.log(res);
+				}
+			)
+			.catch(
+				err => {
+					console.log(err);
+					alert('A problem occurred. Please try again.');
+				}
+			)
 	}
 
 	render() {
@@ -79,24 +78,6 @@ class StrengthsModal extends Component {
 
 								<select className="form-control" id="strength3" ref="strength3">
 									<option selected disabled hidden>{this.props.myStrengths[2]}</option>
-									{strengths}
-								</select>
-							</div>
-
-							<div className="form-group">
-								<label htmlFor="strength4">Fourth Highest Strength</label>
-
-								<select className="form-control" id="strength4" ref="strength4">
-									<option selected disabled hidden>{this.props.myStrengths[3]}</option>
-									{strengths}
-								</select>
-							</div>
-
-							<div className="form-group">
-								<label htmlFor="strength5">Fifth Highest Strength</label>
-
-								<select className="form-control" id="strength5" ref="strength5">
-									<option selected disabled hidden>{this.props.myStrengths[4]}</option>
 									{strengths}
 								</select>
 							</div>
