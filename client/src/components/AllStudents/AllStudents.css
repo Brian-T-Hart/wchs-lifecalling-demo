@@ -1,9 +1,12 @@
 .table {
 	background-color: #FFF;
+	position: absolute;
+	left: 0;
+	top: 3.3em;
 }
 
-.table-container {
-	overflow: auto;
+tbody {
+	font-size: 0.8em;
 }
 
 ul {
