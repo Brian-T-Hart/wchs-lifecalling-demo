@@ -3,9 +3,9 @@
 }
 
 html, body {
-	height: 100%;
-	overflow: auto;
-	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	width: 100vw;
 }
 
 body {
@@ -30,13 +30,21 @@ h6 {
 	padding-left: 0.5em;
 }
 
+.app {
+	height: 100vh;
+	overflow: auto;
+	width: 100vw;
+}
+
 .clickable, .clickable:hover, ul li:hover {
 	cursor: pointer;
 }
 
 .content-container {
+	min-height: 100vh;
 	position: relative;
-	top: 60px;
+	top: 64px;
+	width: 100vw;
 }
 
 .dashboard-content-row {
@@ -146,4 +154,12 @@ h6 {
 
 #navbarDropdown {
 		color: #fff;
+}
+
+#search-container {
+	left: 0;
+	position: fixed;
+    top: 4em;
+	width: 100%;
+	z-index: 2;
 }
