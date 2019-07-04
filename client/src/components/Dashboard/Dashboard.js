@@ -110,7 +110,7 @@ class Dashboard extends Component {
 		return (
 			<div className="content-container" id="dashboard-container">
 
-				<div className="row container-fluid dashboard-content-row">
+				<div className="container-fluid dashboard-content-row pt-3 row">
 					<div className="info-div col-md-4 col-sm-6">
 						<MyStrengths strengths={this.state.strengths} myStrengths={this.state.myStrengths} />
 					</div>
