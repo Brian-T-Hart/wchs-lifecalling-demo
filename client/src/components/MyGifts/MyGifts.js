@@ -14,7 +14,7 @@ class MyGifts extends Component {
 
 	giftIndex(name) {
 		for (let i = 0; i < listOfSpiritualGifts.length; i++) {
-			if (listOfSpiritualGifts[i].name === name) {
+			if (listOfSpiritualGifts[i].name.toLowerCase() === name.toLowerCase()) {
 				this.setState({ giftName: listOfSpiritualGifts[i].name });
 				this.setState({ giftDescription: listOfSpiritualGifts[i].description })
 			}
