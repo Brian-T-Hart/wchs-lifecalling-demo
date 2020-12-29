@@ -11,115 +11,143 @@ class OthersModal extends Component {
 		this.uploadJohari = this.uploadJohari.bind(this);
 		this.uploadLearningStyles = this.uploadLearningStyles.bind(this);
 		this.uploadCv = this.uploadCv.bind(this);
+		this.cloudinarySettings = {
+			cloudName: "dfonttj4w",
+			uploadPreset: "bfkrw8gu",
+			sources: [
+				"local",
+				"url",
+				"google_drive",
+				"facebook",
+        		"dropbox",
+        		"instagram"
+			],
+			showAdvancedOptions: true,
+			cropping: true,
+			multiple: false,
+			defaultSource: "local",
+			styles: {
+				palette: {
+					window: "#000000",
+					sourceBg: "#000000",
+					windowBorder: "#8E9FBF",
+					tabIcon: "#FFFFFF",
+					inactiveTabIcon: "#8E9FBF",
+					menuIcons: "#2AD9FF",
+					link: "#08C0FF",
+					action: "#336BFF",
+					inProgress: "#00BFFF",
+					complete: "#33ff00",
+					error: "#EA2727",
+					textDark: "#000000",
+					textLight: "#FFFFFF"
+				},
+				fonts: {
+					default: null,
+					"'Space Mono', monospace": {
+						url: "https://fonts.googleapis.com/css?family=Space+Mono",
+						active: true
+					}
+				}
+			}
+		} //cloudinary settings
 	}
 
 	uploadCv(e) {
 		e.preventDefault();
-		window.cloudinary.openUploadWidget(
-			{
-				cloud_name: 'dfonttj4w',
-				upload_preset: 'bfkrw8gu',
-				folder: 'wchs-life-calling'
-			},
-
-			function(error, result) {
-				if (error) {
-					console.log(error);
-				}
-				
-				API.saveCvUrl(
+		window.cloudinary.openUploadWidget(this.cloudinarySettings,
+			(err, result) => {
+				if (result.event === "success") {
+					console.log("Upload Widget event - ", result);
+					API.saveCvUrl(
 					{
 						id: localStorage.getItem("lifeCallingId"),
-						documentUrl: result[0].secure_url
-					}
-				)
-				.then(res =>
-					{
-						alert('The document was saved!');
-						window.location = '/dashboard';
-					}
-				)
-				.catch(err =>
-					{
-						alert('Something went wrong. Please try again!');
-					}
-				)
+						documentUrl: result.info.secure_url
+					})
+					.then(res =>
+						{
+							alert('The document was saved!');
+							window.location = '/dashboard';
+						}
+					)
+					.catch(err =>
+						{
+							alert('Something went wrong. Please try again!');
+						}
+					)
+				}
+				if (err) {
+					console.log('error', err);
+				}
 			}
-		)
-	}
+		);//uploadWidget
+	}//uploadCv
 
 	uploadJohari(e) {
 		e.preventDefault();
 		window.cloudinary.openUploadWidget(
-			{
-				cloud_name: 'dfonttj4w',
-				upload_preset: 'bfkrw8gu',
-				folder: 'wchs-life-calling'
-			},
-
-			function(error, result) {
-				if (error) {
-					console.log(error);
-				}
-
-				API.saveJohariUrl(
-					{
-						id: localStorage.getItem("lifeCallingId"),
-						johariUrl: result[0].secure_url
-					}
-				)
-				.then(res =>
-					{
-						alert('The document was saved.');
-						window.location = '/dashboard';
-					}
-				)
-				.catch(err =>
-					{
-						alert('Something went wrong. Please try again!');
-					}
-				)
+			this.cloudinarySettings,
+			(err, result) => {
+				if (result.event === "success") {
+					console.log("Upload Widget event - ", result);
+					API.saveJohariUrl(
+						{
+							id: localStorage.getItem("lifeCallingId"),
+							johariUrl: result.info.secure_url
+						}
+					)
+					.then(res =>
+						{
+							alert('The document was saved!');
+							window.location = '/dashboard';
+						}
+					)
+					.catch(err =>
+						{
+							alert('Something went wrong. Please try again!');
+						}
+					)
+			   }
+			   if (err) {
+				   console.log('error', err);
+			   }
 			}
-		)
-	}
+		);//uploadWidget
+	}//uploadJohari
 
 	uploadLearningStyles(e) {
 		e.preventDefault();
 		window.cloudinary.openUploadWidget(
-			{
-				cloud_name: 'dfonttj4w',
-				upload_preset: 'bfkrw8gu',
-				folder: 'wchs-life-calling'
-			},
-
-			function(error, result) {
-				if (error) {
-					console.log(error);
+			this.cloudinarySettings,
+			(err, result) => {
+				if (result.event === "success") {
+					console.log("Upload Widget event - ", result);
+					API.saveLearningStylesUrl(
+						{
+							id: localStorage.getItem("lifeCallingId"),
+							learningStylesUrl: result.info.secure_url
+						}
+					)
+					.then(res =>
+						{
+							alert('The document was saved!');
+							window.location = '/dashboard';
+						}
+					)
+					.catch(err =>
+						{
+							alert('Something went wrong. Please try again!');
+						}
+					)
 				}
-
-				API.saveLearningStylesUrl(
-					{
-						id: localStorage.getItem("lifeCallingId"),
-						learningStylesUrl: result[0].secure_url
-					}
-				)
-				.then(res =>
-					{
-						alert('The document was saved.');
-						window.location = '/dashboard';
-					}
-				)
-				.catch(err =>
-					{
-						alert('Something went wrong. Please try again.');
-					}
-				)
+				if (err) {
+					console.log('error', err);
+				}
 			}
-		)
-	}
+		);//uploadWidget
+	}//uploadLearningStyles
 
 	render() {
-
 		return (
 			<div>
 				<div className="modal-content">
@@ -138,11 +166,11 @@ class OthersModal extends Component {
 							</div>
 
 							<div className="uploadButtonDiv">
-							<button className="uploadButton" onClick={this.uploadJohari}>Upload Johari Window</button>
+								<button className="uploadButton" onClick={this.uploadJohari}>Upload Johari Window</button>
 							</div>
 
 							<div className="uploadButtonDiv">
-							<button className="uploadButton" onClick={this.uploadCv}>Upload CV</button>
+								<button className="uploadButton" onClick={this.uploadCv}>Upload CV</button>
 							</div>
 						</div>
 
