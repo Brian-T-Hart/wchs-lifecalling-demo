@@ -17,10 +17,9 @@ class OthersModal extends Component {
 			sources: [
 				"local",
 				"url",
+				"camera",
 				"google_drive",
-				"facebook",
-        		"dropbox",
-        		"instagram"
+        		"dropbox"
 			],
 			showAdvancedOptions: true,
 			cropping: true,
